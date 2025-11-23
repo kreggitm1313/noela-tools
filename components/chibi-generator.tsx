@@ -94,11 +94,11 @@ Join the revolution. Build with Noela.`
         throw new Error(data.error || "Failed to generate chibi")
       }
 
-      if (!data.imageUrl || data.fallback) {
-        throw new Error("Image generation service is temporarily unavailable. Please try again.")
+      if (!data.imageUrl) {
+        throw new Error("No image URL received from server")
       }
 
-      console.log("[v0] Generation successful")
+      console.log("[v0] Generation successful, image URL:", data.imageUrl)
       setGeneratedImage(data.imageUrl)
 
       toast({
@@ -399,8 +399,27 @@ Join the revolution. Build with Noela.`
             {/* Result */}
             {generatedImage && (
               <div className="space-y-4">
-                <div className="rounded-xl overflow-hidden shadow-xl border-2 border-purple-200">
-                  <img src={generatedImage || "/placeholder.svg"} alt="Generated chibi" className="w-full" />
+                <div className="rounded-xl overflow-hidden shadow-xl border-2 border-purple-200 bg-gray-100">
+                  <img
+                    src={generatedImage || "/placeholder.svg"}
+                    alt="Generated chibi"
+                    className="w-full"
+                    onLoad={() => {
+                      console.log("[v0] Image loaded successfully")
+                      toast({
+                        title: "Image Loaded!",
+                        description: "Your chibi is ready to download or mint",
+                      })
+                    }}
+                    onError={(e) => {
+                      console.error("[v0] Image failed to load:", generatedImage)
+                      toast({
+                        title: "Image Loading Failed",
+                        description: "The image URL might be invalid. Please try generating again.",
+                        variant: "destructive",
+                      })
+                    }}
+                  />
                 </div>
                 <div className="grid grid-cols-2 gap-3">
                   <Button onClick={downloadImage} className="bg-purple-600 hover:bg-purple-700" size="lg">

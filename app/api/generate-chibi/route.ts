@@ -38,9 +38,7 @@ export async function POST(req: NextRequest) {
       console.log("[v0] Starting image generation...")
       const imageUrl = await generateWithFallbackInstant(enhancedPrompt, dimensions.width, dimensions.height)
 
-      // If we get a placeholder, we just return it. The frontend should handle it.
-
-      console.log("[v0] Successfully generated chibi image URL")
+      console.log("[v0] Successfully generated chibi image URL:", imageUrl)
       return NextResponse.json({ imageUrl, fallback: false })
     } catch (error) {
       console.error("[v0] Pollinations generation error:", error)
