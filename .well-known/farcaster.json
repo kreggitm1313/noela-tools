@@ -9,10 +9,9 @@
     "name": "Noela Frame",
     "iconUrl": "https://noela-toolss.vercel.app/icon.png",
     "homeUrl": "https://noela-toolss.vercel.app",
-    "imageUrl": "https://noela-toolss.vercel.app/image.png",
-    "buttonTitle": "Generate Art",
-    "splashImageUrl": "https://noela-toolss.vercel.app/splash.png",
-    "splashBackgroundColor": "#eeccff",
-    "webhookUrl": "https://noela-toolss.vercel.app/api/webhook"
+    "imageUrl": "https://noela-toolss.vercel.app/opengraph-image",
+    "splashImageUrl": "https://noela-toolss.vercel.app/icon.png",
+    "splashBackgroundColor": "#3b82f6",
+    "webhookUrl": "https://noela-toolss.vercel.app/api/frame"
   }
 }
