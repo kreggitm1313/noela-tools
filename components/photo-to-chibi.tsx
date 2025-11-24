@@ -222,6 +222,15 @@ export function PhotoToChibi() {
             </Button>
           )}
 
+          {/* Processing Warning Message */}
+          {isProcessing && (
+            <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+              <p className="text-sm text-yellow-800 font-medium text-center">
+                ⏳ Tunggu sebentar ya, foto sedang diproses... Jangan klik transform ulang dulu!
+              </p>
+            </div>
+          )}
+
           {/* Result */}
           {processedImage && (
             <div className="space-y-4">

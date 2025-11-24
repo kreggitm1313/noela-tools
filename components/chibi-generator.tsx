@@ -396,6 +396,14 @@ Join the revolution. Build with Noela.`
               )}
             </Button>
 
+            {isGenerating && (
+              <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                <p className="text-sm text-yellow-800 font-medium text-center">
+                  ⏳ Tunggu sebentar ya, gambar sedang diproses... Jangan klik generate ulang dulu!
+                </p>
+              </div>
+            )}
+
             {/* Result */}
             {generatedImage && (
               <div className="space-y-4">
